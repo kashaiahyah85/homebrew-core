@@ -55,12 +55,12 @@ class Mame < Formula
                    "USE_SYSTEM_LIB_SQLITE3=1",
                    "USE_SYSTEM_LIB_UTF8PROC=1",
                    "TOOLS=1"
-    bin.install "chdman" => "chdman"
+    bin.install "tools/chdman" => "chdman"
     pkgshare.install %w[artwork bgfx hash ini keymaps plugins samples uismall.bdf]
   end
 
   test do
-    assert shell_output("#{bin}/mame -help").start_with? "MAME v#{version}"
-    system "#{bin}/mame", "-validate"
+    assert shell_output("#{bin}/chdman -help").start_with? "MAME v#{version}"
+    system "#{bin}/chdman", "-validate"
   end
 end
