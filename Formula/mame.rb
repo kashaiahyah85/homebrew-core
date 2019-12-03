@@ -53,7 +53,8 @@ class Mame < Formula
                    "USE_SYSTEM_LIB_PUGIXML=1",
                    "USE_SYSTEM_LIB_RAPIDJSON=1",
                    "USE_SYSTEM_LIB_SQLITE3=1",
-                   "USE_SYSTEM_LIB_UTF8PROC=1"
+                   "USE_SYSTEM_LIB_UTF8PROC=1",
+                   "TOOLS=1"
     bin.install "mame64" => "mame"
     cd "docs" do
       # We don't convert SVG files into PDF files, don't load the related extensions.
