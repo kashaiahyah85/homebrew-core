@@ -1,4 +1,4 @@
-class Mame < Formula
+class Chdman < Formula
   desc "Multiple Arcade Machine Emulator Tools"
   homepage "https://mamedev.org/"
   url "https://github.com/mamedev/mame/archive/mame0215.tar.gz"
