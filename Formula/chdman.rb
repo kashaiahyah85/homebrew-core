@@ -54,6 +54,7 @@ class Mame < Formula
                    "USE_SYSTEM_LIB_RAPIDJSON=1",
                    "USE_SYSTEM_LIB_SQLITE3=1",
                    "USE_SYSTEM_LIB_UTF8PROC=1",
+                   "SOURCE=src/tools/chdman.cpp",
                    "TOOLS=1"
     bin.install "tools/chdman" => "chdman"
     pkgshare.install %w[artwork bgfx hash ini keymaps plugins samples uismall.bdf]
