@@ -1,5 +1,5 @@
-class Mame < Formula
-  desc "Multiple Arcade Machine Emulator"
+class Chdman < Formula
+  desc "Multiple Arcade Machine Emulator Tools"
   homepage "https://mamedev.org/"
   url "https://github.com/mamedev/mame/archive/mame0215.tar.gz"
   version "0.215"
@@ -54,21 +54,14 @@ class Mame < Formula
                    "USE_SYSTEM_LIB_RAPIDJSON=1",
                    "USE_SYSTEM_LIB_SQLITE3=1",
                    "USE_SYSTEM_LIB_UTF8PROC=1",
+                   "SOURCE=src/tools/chdman.cpp",
                    "TOOLS=1"
-    bin.install "mame64" => "mame"
-    cd "docs" do
-      # We don't convert SVG files into PDF files, don't load the related extensions.
-      inreplace "source/conf.py", "'sphinxcontrib.rsvgconverter'", ""
-      system "make", "text"
-      doc.install Dir["build/text/*"]
-      system "make", "man"
-      man1.install "build/man/MAME.1" => "mame.1"
-    end
+    bin.install "tools/chdman" => "chdman"
     pkgshare.install %w[artwork bgfx hash ini keymaps plugins samples uismall.bdf]
   end
 
   test do
-    assert shell_output("#{bin}/mame -help").start_with? "MAME v#{version}"
-    system "#{bin}/mame", "-validate"
+    assert shell_output("#{bin}/chdman -help").start_with? "MAME v#{version}"
+    system "#{bin}/chdman", "-validate"
   end
 end
